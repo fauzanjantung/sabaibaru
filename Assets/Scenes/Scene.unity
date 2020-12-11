@@ -180,11 +180,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da5f82af12c181c479e752fa580d80bb, type: 3}
---- !u!4 &852711703 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 54292519701545289, guid: da5f82af12c181c479e752fa580d80bb, type: 3}
-  m_PrefabInstance: {fileID: 678370200}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &994129189
 GameObject:
   m_ObjectHideFlags: 0
@@ -277,38 +272,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &2015348333 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 54292520333163801, guid: da5f82af12c181c479e752fa580d80bb, type: 3}
-  m_PrefabInstance: {fileID: 678370200}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &2015348334 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 54292520333163814, guid: da5f82af12c181c479e752fa580d80bb, type: 3}
-  m_PrefabInstance: {fileID: 678370200}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2015348335
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2015348333}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7526ff208a2cf76459fb99daf97bf248, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerRoot: {fileID: 852711703}
-  lookRoot: {fileID: 2015348334}
-  invert: 0
-  can_Unlock: 1
-  sensitivity: 5
-  smooth_Steps: 10
-  smooth_Weight: 0.4
-  roll_Angle: 0
-  roll_Speed: 3
-  default_Look_Limits: {x: -70, y: 80}
 --- !u!1001 &2086186571
 PrefabInstance:
   m_ObjectHideFlags: 0
