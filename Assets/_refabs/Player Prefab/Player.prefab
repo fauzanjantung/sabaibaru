@@ -432,6 +432,7 @@ GameObject:
   - component: {fileID: 54292519701545288}
   - component: {fileID: 1639689453694199185}
   - component: {fileID: 99551014}
+  - component: {fileID: 1409925667498366475}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -502,6 +503,25 @@ MonoBehaviour:
   sprint_Speed: 10
   move_Speed: 5
   crouch_Speed: 2
+--- !u!114 &1409925667498366475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 54292519701545291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2cb22bb2aa94b84788515e8ec7be999, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapons:
+  - {fileID: 763589850831129521}
+  - {fileID: 5299548254530236940}
+  - {fileID: 2720204580105586897}
+  - {fileID: 2075947314579636061}
+  - {fileID: 5383016254337938772}
+  - {fileID: 3325306515351459110}
 --- !u!82 &3880914940013504104
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2686,14 +2706,14 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 3336d43058b91ea4aa0f2e2b1c27eb2d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ded3362b8b3b82243b3043bb355c770c, type: 3}
---- !u!4 &54292519852615401 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400014, guid: ded3362b8b3b82243b3043bb355c770c, type: 3}
-  m_PrefabInstance: {fileID: 54292519852227687}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &54292519852260041 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100014, guid: ded3362b8b3b82243b3043bb355c770c, type: 3}
+  m_PrefabInstance: {fileID: 54292519852227687}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &54292519852615401 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400014, guid: ded3362b8b3b82243b3043bb355c770c, type: 3}
   m_PrefabInstance: {fileID: 54292519852227687}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &54292519979413497
