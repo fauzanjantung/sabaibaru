@@ -16,7 +16,14 @@ public class PlayerAttack : MonoBehaviour
 
     private bool is_Aiming;
 
-    void Awake() {
+    [SerializeField]
+    public GameObject arrow_Prefab, spear_Prefab;
+
+    [SerializeField]
+    private Transform arrow_Bow_StartPosition;
+
+    void Awake()
+    {
         weapon_Manager = GetComponent<WeaponManager>();
 
         zoomCameraAnim = transform.Find(Tags.LOOK_ROOT)
@@ -30,7 +37,7 @@ public class PlayerAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -40,32 +47,44 @@ public class PlayerAttack : MonoBehaviour
         ZoomInAndOut();
     }
 
-    void weaponShoot() {
-        if(weapon_Manager.GetCurrentSelectedWeapon().fireType == WeaponFireType.MULTIPLE) {
-            if(Input.GetMouseButton(0) && Time.time > nextTimeToFire) {
+    void weaponShoot()
+    {
+        if (weapon_Manager.GetCurrentSelectedWeapon().fireType == WeaponFireType.MULTIPLE)
+        {
+            if (Input.GetMouseButton(0) && Time.time > nextTimeToFire)
+            {
                 nextTimeToFire = Time.time + 1f / fireRate;
                 weapon_Manager.GetCurrentSelectedWeapon().ShootAnimation();
             }
-        } else {
-            if(Input.GetMouseButtonDown(0)) {
-                if(weapon_Manager.GetCurrentSelectedWeapon().tag == Tags.AXE_TAG) {
+        }
+        else
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (weapon_Manager.GetCurrentSelectedWeapon().tag == Tags.AXE_TAG)
+                {
                     weapon_Manager.GetCurrentSelectedWeapon().ShootAnimation();
+                    BulletFired();
                 }
                 if (weapon_Manager.GetCurrentSelectedWeapon().bulletType == WeaponBulletType.BULLET)
                 {
                     weapon_Manager.GetCurrentSelectedWeapon().ShootAnimation();
-                    //BullerFired();
+                    BulletFired();
                 }
                 else
                 {
-                    if(is_Aiming) {
+                    if (is_Aiming)
+                    {
                         weapon_Manager.GetCurrentSelectedWeapon().ShootAnimation();
-                        if(weapon_Manager.GetCurrentSelectedWeapon().bulletType
-                        == WeaponBulletType.ARROW) {
-
-                        } else if (weapon_Manager.GetCurrentSelectedWeapon().bulletType
-                        == WeaponBulletType.SPEAR) {
-                            
+                        if (weapon_Manager.GetCurrentSelectedWeapon().bulletType
+                        == WeaponBulletType.ARROW)
+                        {
+                            ThrowArrowOrSpear(true);
+                        }
+                        else if (weapon_Manager.GetCurrentSelectedWeapon().bulletType
+                      == WeaponBulletType.SPEAR)
+                        {
+                            ThrowArrowOrSpear(false);
                         }
                     }
                 }
@@ -73,27 +92,56 @@ public class PlayerAttack : MonoBehaviour
         }
     }
 
-    void ZoomInAndOut() {
-        if(weapon_Manager.GetCurrentSelectedWeapon().weapon_Aim == WeaponAim.AIM) {
-            if(Input.GetMouseButtonDown(1)) {
-                zoomCameraAnim.Play(AnimationTags.ZOOM_IN_ANIM);
-                crosshair.SetActive(false);
-            }
-            if(Input.GetMouseButtonUp(1)) {
-                zoomCameraAnim.Play(AnimationTags.ZOOM_OUT_ANIM);
-                crosshair.SetActive(true);
-            }
+    void ZoomInAndOut()
+    {
+        if (weapon_Manager.GetCurrentSelectedWeapon().weapon_Aim == WeaponAim.AIM)
+        {
+            if (Input.GetMouseButtonDown(1))
+                {
+                    zoomCameraAnim.Play(AnimationTags.ZOOM_IN_ANIM);
+                    crosshair.SetActive(false);
+                }
+            if (Input.GetMouseButtonUp(1))
+                {
+                    zoomCameraAnim.Play(AnimationTags.ZOOM_OUT_ANIM);
+                    crosshair.SetActive(true);
+                }
         }
 
-        if(weapon_Manager.GetCurrentSelectedWeapon().weapon_Aim == WeaponAim.SELF_AIM) {
-            if(Input.GetMouseButtonDown(1)) {
+        if (weapon_Manager.GetCurrentSelectedWeapon().weapon_Aim == WeaponAim.SELF_AIM)
+            {
+                if (Input.GetMouseButtonDown(1))
+                {
                     weapon_Manager.GetCurrentSelectedWeapon().Aim(true);
                     is_Aiming = true;
-            }
-            if(Input.GetMouseButtonUp(1)) {
+                }
+                if (Input.GetMouseButtonUp(1))
+                {
                     weapon_Manager.GetCurrentSelectedWeapon().Aim(false);
                     is_Aiming = false;
+                }
             }
+    }
+
+    void ThrowArrowOrSpear(bool throwArrow) {
+        if(throwArrow) {
+            GameObject arrow = Instantiate(arrow_Prefab);
+            arrow.transform.position = arrow_Bow_StartPosition.position;
+
+            arrow.GetComponent<ArrowBowScript>().Launch(mainCam);
+        } else {
+            GameObject spear = Instantiate(spear_Prefab);
+            spear.transform.position = arrow_Bow_StartPosition.position;
+
+            spear.GetComponent<ArrowBowScript>().Launch(mainCam);
+        }
+    }
+
+    void BulletFired() {
+        RaycastHit hit;
+
+        if(Physics.Raycast(mainCam.transform.position, mainCam.transform.forward, out hit)) {
+            print(hit.transform.gameObject.name);
         }
     }
 }

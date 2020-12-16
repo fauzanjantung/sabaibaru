@@ -454,6 +454,7 @@ Transform:
   m_Children:
   - {fileID: 54292520333163814}
   - {fileID: 1794080217}
+  - {fileID: 2652376463830132176}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -537,6 +538,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fireRate: 15
   damage: 20
+  arrow_Prefab: {fileID: 8745295665176264335, guid: 4070ff2833a786c4b9150d3d9997941e, type: 3}
+  spear_Prefab: {fileID: 7885776982299531354, guid: b112e701380c7e74e8508c1be54ddf44, type: 3}
+  arrow_Bow_StartPosition: {fileID: 2652376463830132176}
 --- !u!82 &3880914940013504104
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1128,6 +1132,36 @@ MonoBehaviour:
   roll_Angle: 0
   roll_Speed: 3
   default_Look_Limits: {x: -70, y: 80}
+--- !u!1 &4668491728068883586
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2652376463830132176}
+  m_Layer: 0
+  m_Name: Arrow Bow Start Position
+  m_TagString: Untagged
+  m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2652376463830132176
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4668491728068883586}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.525, z: 0.898}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 54292519701545289}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &54292518847180941
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1417,14 +1451,14 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: de815c610e27f0e4b9268666d6442155, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f01a880f7473c2546b3ff80815537299, type: 3}
---- !u!4 &54292518847572503 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400026, guid: f01a880f7473c2546b3ff80815537299, type: 3}
-  m_PrefabInstance: {fileID: 54292518847180941}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &54292518847215159 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100026, guid: f01a880f7473c2546b3ff80815537299, type: 3}
+  m_PrefabInstance: {fileID: 54292518847180941}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &54292518847572503 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 400026, guid: f01a880f7473c2546b3ff80815537299, type: 3}
   m_PrefabInstance: {fileID: 54292518847180941}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &54292519581633740
